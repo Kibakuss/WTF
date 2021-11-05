@@ -1,15 +1,30 @@
 void main() {
-  print(nonRepet());
+  print(nonRepet("abaa2-1=,b@a!cccasopdia=diodmn"));
 }
 
-nonRepet() {
-  String str = "ababccccdmn";
-  for (var i = 0; i < str.length; i++) {
-    var char = str[i];
-    if (str.indexOf(char) == i && str.indexOf(char, i + 1) == -1) {
-      print(char);
+nonRepet(string) {
+  var collection = [];
+  var matches = [];
+  
+  for (var i = 0; i < string.length; i++) {
+    var char = string[i];
+    
+    
+    if (matches.contains(char)) {
+      collection.remove(char);
     }
-
-    print(null);
+    else if (collection.contains(char)) {
+      collection.remove(char);
+      matches.add(char);
+    }
+    else {
+      collection.add(char);
+    }
   }
+  
+  print(collection);
+  print("----------");
+  print(matches);
+  
+  collection[0];
 }
